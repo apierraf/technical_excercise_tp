@@ -1,0 +1,10 @@
+{
+    "@@locale": "en",
+    "movies": "Movies",
+    "settings": "Settings",
+    "search": "Search",
+    "all": "All",
+    "change_lang": "Change language",
+    "chose_lang": "Choose language",
+    "dark_mode": "Dark mode"
+}
