@@ -23,12 +23,14 @@ final routes = GoRouter(
         GoRoute(
           path: '/movies_page',
           name: 'movies_page',
-          builder: (context, state) => const MoviesPage(),
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: MoviesPage()),
         ),
         GoRoute(
           path: '/config_app',
           name: 'config_app',
-          builder: (context, state) => const ConfigurationPage(),
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: ConfigurationPage()),
         )
       ],
     ),

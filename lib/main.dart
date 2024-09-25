@@ -4,12 +4,15 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tecnical_excercise_tp/core/routes/app_routes.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tecnical_excercise_tp/shared/locale/locale_provider.dart';
+import 'package:tecnical_excercise_tp/shared/prefs/app_prefs.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   //load .env file to get the api key
   await dotenv.load(fileName: '.env');
+  await AppPrefs.init();
 
   runApp(
     const ProviderScope(
@@ -24,9 +27,10 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var locale = ref.watch(localeControllersProvider);
     return MaterialApp.router(
-      title: 'Movies TP',
       routerConfig: routes,
+      locale: Locale(locale),
       localizationsDelegates: const [
         AppLocalizations.delegate, // Add this line
         GlobalMaterialLocalizations.delegate,

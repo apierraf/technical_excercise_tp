@@ -6,5 +6,6 @@
     "all": "Todos",
     "change_lang": "Cambiar idioma",
     "chose_lang": "Elegir idioma",
-    "dark_mode": "Modo oscuro"
+    "dark_mode": "Modo oscuro",
+    "cancel": "Cancelar"
 }

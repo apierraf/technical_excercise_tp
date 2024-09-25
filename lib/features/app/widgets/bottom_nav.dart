@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomNavApp extends StatelessWidget {
   final int index;
@@ -12,16 +13,16 @@ class BottomNavApp extends StatelessWidget {
       child: NavigationBar(
         selectedIndex: index,
         onDestinationSelected: (value) => selectedNav(value),
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.movie_outlined),
-            selectedIcon: Icon(Icons.movie),
-            label: 'Movies',
+            icon: const Icon(Icons.movie_outlined),
+            selectedIcon: const Icon(Icons.movie),
+            label: AppLocalizations.of(context)!.movies,
           ),
           NavigationDestination(
-            icon: Icon(Icons.settings_outlined),
-            selectedIcon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: const Icon(Icons.settings_outlined),
+            selectedIcon: const Icon(Icons.settings),
+            label: AppLocalizations.of(context)!.settings,
           ),
         ],
       ),
