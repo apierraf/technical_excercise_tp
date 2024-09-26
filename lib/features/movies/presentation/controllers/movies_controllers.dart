@@ -34,7 +34,7 @@ class GenreController extends _$GenreController {
 List<int> selectedIds(SelectedIdsRef ref, List<Genre> genres) {
   var genresList = ref.watch(genreControllerProvider(genres));
   return genresList
-      .where((element) => element.selected!)
+      .where((element) => element.selected)
       .map((e) => e.id!)
       .toList();
 }

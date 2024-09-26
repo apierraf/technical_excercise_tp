@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tecnical_excercise_tp/features/app/app_page.dart';
 import 'package:tecnical_excercise_tp/features/configuration/configuration_page.dart';
+import 'package:tecnical_excercise_tp/features/details/presentation/details_page.dart';
 import 'package:tecnical_excercise_tp/features/movies/presentation/movies_page.dart';
 
 /*
@@ -25,6 +26,16 @@ final routes = GoRouter(
           name: 'movies_page',
           pageBuilder: (context, state) =>
               const NoTransitionPage(child: MoviesPage()),
+          routes: [
+            GoRoute(
+              path: 'details_page',
+              name: 'details_page',
+              builder: (context, state) {
+                int id = state.extra as int;
+                return DetailsPage(id: id);
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: '/config_app',

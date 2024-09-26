@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tecnical_excercise_tp/core/constants/app_constants.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tecnical_excercise_tp/features/movies/domain/models/movies_model/result.dart';
 
 class MovieItem extends StatelessWidget {
@@ -60,7 +61,7 @@ class MovieItem extends StatelessWidget {
         ],
       ),
       leading: CachedNetworkImage(
-        imageUrl: '$IMAGE_URL${movie.backdropPath}',
+        imageUrl: '$IMAGE_URL${movie.posterPath}',
         width: 70,
         height: 100,
         fit: BoxFit.cover,
@@ -73,6 +74,7 @@ class MovieItem extends StatelessWidget {
         },
         errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
+      onTap: () => context.goNamed('details_page', extra: movie.id),
     );
   }
 }

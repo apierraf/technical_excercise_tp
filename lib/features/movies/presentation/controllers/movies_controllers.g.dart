@@ -23,7 +23,7 @@ final getGenresControllerProvider =
 );
 
 typedef GetGenresControllerRef = AutoDisposeFutureProviderRef<List<Genre>>;
-String _$selectedIdsHash() => r'106d4fc1f3db27020f29909e7450d1aa9125bb48';
+String _$selectedIdsHash() => r'1954cc14426924c233726bb8049f5558f753134c';
 
 /// Copied from Dart SDK
 class _SystemHash {

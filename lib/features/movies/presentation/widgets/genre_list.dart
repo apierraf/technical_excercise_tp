@@ -29,7 +29,7 @@ class _GenreListState extends ConsumerState<GenreList> {
             padding: const EdgeInsets.all(5),
             child: ChoiceChip(
               label: Text(genre.name ?? ''),
-              selected: genre.selected ?? false,
+              selected: genre.selected,
               onSelected: (value) {
                 ref
                     .read(genreControllerProvider(widget.genres).notifier)
