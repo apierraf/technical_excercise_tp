@@ -6,14 +6,13 @@ part of 'genre_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GenreModelImpl _$$GenreModelImplFromJson(Map<String, dynamic> json) =>
-    _$GenreModelImpl(
+GenreModel _$GenreModelFromJson(Map<String, dynamic> json) => GenreModel(
       genres: (json['genres'] as List<dynamic>?)
           ?.map((e) => Genre.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$GenreModelImplToJson(_$GenreModelImpl instance) =>
+Map<String, dynamic> _$GenreModelToJson(GenreModel instance) =>
     <String, dynamic>{
       'genres': instance.genres,
     };

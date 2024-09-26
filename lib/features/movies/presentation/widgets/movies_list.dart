@@ -19,11 +19,14 @@ class _MoviesListState extends ConsumerState<MoviesList> {
 
   @override
   void initState() {
-    scrollController.addListener(() async {
-      if (scrollController.position.pixels ==
-          scrollController.position.maxScrollExtent) {
-        await fecthMore();
-      }
+    WidgetsFlutterBinding.ensureInitialized()
+        .addPostFrameCallback((timeStamp) async {
+      scrollController.addListener(() async {
+        if (scrollController.position.pixels ==
+            scrollController.position.maxScrollExtent) {
+          await fecthMore();
+        }
+      });
     });
 
     super.initState();

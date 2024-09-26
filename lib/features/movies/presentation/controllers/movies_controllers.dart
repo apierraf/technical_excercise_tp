@@ -23,7 +23,7 @@ class GenreController extends _$GenreController {
   changeSelected(int id) {
     state = state.map((e) {
       if (e.id == id) {
-        return e.copyWith(selected: !e.selected!);
+        e.selected = !e.selected;
       }
       return e;
     }).toList();

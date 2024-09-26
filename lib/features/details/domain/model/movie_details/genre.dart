@@ -6,9 +6,8 @@ part 'genre.g.dart';
 class Genre {
   int? id;
   String? name;
-  bool selected;
 
-  Genre({this.id, this.name, this.selected = false});
+  Genre({this.id, this.name});
 
   factory Genre.fromJson(Map<String, dynamic> json) => _$GenreFromJson(json);
 

@@ -172,7 +172,7 @@ class _SelectedIdsProviderElement extends AutoDisposeProviderElement<List<int>>
   List<Genre> get genres => (origin as SelectedIdsProvider).genres;
 }
 
-String _$genreControllerHash() => r'0b824bd228c2024590b1c2d61955186602bbe760';
+String _$genreControllerHash() => r'89d71299cd112cc1554a944a6572661884ff3354';
 
 abstract class _$GenreController
     extends BuildlessAutoDisposeNotifier<List<Genre>> {

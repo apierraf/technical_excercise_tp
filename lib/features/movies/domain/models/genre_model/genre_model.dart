@@ -1,16 +1,18 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import 'genre.dart';
 
-part 'genre_model.freezed.dart';
 part 'genre_model.g.dart';
 
-@unfreezed
-class GenreModel with _$GenreModel {
-  factory GenreModel({
-    List<Genre>? genres,
-  }) = _GenreModel;
+@JsonSerializable()
+class GenreModel {
+  List<Genre>? genres;
 
-  factory GenreModel.fromJson(Map<String, dynamic> json) =>
-      _$GenreModelFromJson(json);
+  GenreModel({this.genres});
+
+  factory GenreModel.fromJson(Map<String, dynamic> json) {
+    return _$GenreModelFromJson(json);
+  }
+
+  Map<String, dynamic> toJson() => _$GenreModelToJson(this);
 }
