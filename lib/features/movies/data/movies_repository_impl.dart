@@ -40,8 +40,6 @@ class MoviesRepositoryImpl implements MoviesRepository {
       if (request.statusCode == 200) {
         var moviesModel = MoviesModel.fromJson(request.data);
 
-        print(moviesModel.results![0].backdropPath);
-
         return moviesModel.results ?? [];
       } else {
         return [];

@@ -331,7 +331,7 @@ final pagesControllerProvider = NotifierProvider<PagesController, int>.internal(
 );
 
 typedef _$PagesController = Notifier<int>;
-String _$moviesControllersHash() => r'165ccb437fec1c02d106c7712f1b421b34f3a070';
+String _$moviesControllersHash() => r'35313f600908e100092363bab0299d8bc4909689';
 
 /// See also [MoviesControllers].
 @ProviderFor(MoviesControllers)

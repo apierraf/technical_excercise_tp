@@ -53,20 +53,23 @@ class PagesController extends _$PagesController {
 class MoviesControllers extends _$MoviesControllers {
   @override
   FutureOr<List<Result>> build() async {
-    return await getMoviesByGenre([]);
+    return await getMoviesByGenre();
   }
 
-  FutureOr<List<Result>> getMoviesByGenre(List<int> genresIds) async {
+  Future<List<Result>> getMoviesByGenre() async {
     var dio = ref.read(dioConfigProvider);
     int page = ref.read(pagesControllerProvider);
+    var genres = await ref.read(getGenresControllerProvider.future);
+    var genreController = ref.read(genreControllerProvider(genres));
+    var selectedIds = ref.read(selectedIdsProvider(genreController));
     var moviesList =
-        await MoviesRepositoryImpl(dio).fetchMovies(page, genresIds);
+        await MoviesRepositoryImpl(dio).fetchMovies(page, selectedIds);
     return moviesList;
   }
 
-  fetchMoreMovies(List<int> genresIds) async {
+  fetchMoreMovies() async {
     ref.read(pagesControllerProvider.notifier).increment();
-    var results = await getMoviesByGenre(genresIds);
+    var results = await getMoviesByGenre();
     var moviesList = state.whenData((data) => data..addAll(results));
     state = moviesList;
   }

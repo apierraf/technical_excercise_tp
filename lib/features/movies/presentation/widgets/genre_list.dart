@@ -36,9 +36,13 @@ class _GenreListState extends ConsumerState<GenreList> {
                     .changeSelected(genre.id!);
 
                 setState(() {
-                  ref.read(selectedIdsProvider(widget.genres));
-                  // print(
-                  //     'Selected Ids: ${ref.read(selectedIdsProvider(widget.genres))}');
+                  ref.invalidate(pagesControllerProvider);
+
+                  ref.invalidate(moviesControllersProvider);
+
+                  ref
+                      .read(moviesControllersProvider.notifier)
+                      .getMoviesByGenre();
                 });
               },
             ),
