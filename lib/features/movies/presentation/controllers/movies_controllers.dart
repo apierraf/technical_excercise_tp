@@ -27,11 +27,38 @@ class GenreController extends _$GenreController {
       return e;
     }).toList();
   }
-
-  List<int> getIdSelected() {
-    return state
-        .where((element) => element.selected!)
-        .map((e) => e.id!)
-        .toList();
-  }
 }
+
+@riverpod
+List<int> selectedIds(SelectedIdsRef ref, List<Genre> genres) {
+  var genresList = ref.watch(GenreControllerProvider(genres));
+  return genresList
+      .where((element) => element.selected!)
+      .map((e) => e.id!)
+      .toList();
+}
+
+@riverpod
+class PagesController extends _$PagesController {
+  @override
+  int build() {
+    return 1;
+  }
+
+  increment() => state++;
+}
+
+// @riverpod
+// class MoviesControllers extends _$MoviesControllers {
+//   @override
+//   FutureOr<List<Movies>> build() async {
+//     return;
+//   }
+
+//   FutureOr<List<Movies>> getMoviesByGenre(List<int> genres) async {
+//     var dio = ref.read(dioConfigProvider);
+
+//     var moviesList = await MoviesRepositoryImpl(dio).fetchMovies(genres);
+//     return moviesList;
+//   }
+// }

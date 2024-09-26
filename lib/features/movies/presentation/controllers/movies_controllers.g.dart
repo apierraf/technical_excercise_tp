@@ -23,7 +23,7 @@ final getGenresControllerProvider =
 );
 
 typedef GetGenresControllerRef = AutoDisposeFutureProviderRef<List<Genre>>;
-String _$genreControllerHash() => r'998d02726d600e8e4194b818ddfb612e51ab080c';
+String _$selectedIdsHash() => r'5028dab9d009d7868cd2aa2311b38479aa00a8e0';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -45,6 +45,134 @@ class _SystemHash {
     return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
+
+/// See also [selectedIds].
+@ProviderFor(selectedIds)
+const selectedIdsProvider = SelectedIdsFamily();
+
+/// See also [selectedIds].
+class SelectedIdsFamily extends Family<List<int>> {
+  /// See also [selectedIds].
+  const SelectedIdsFamily();
+
+  /// See also [selectedIds].
+  SelectedIdsProvider call(
+    List<Genre> genres,
+  ) {
+    return SelectedIdsProvider(
+      genres,
+    );
+  }
+
+  @override
+  SelectedIdsProvider getProviderOverride(
+    covariant SelectedIdsProvider provider,
+  ) {
+    return call(
+      provider.genres,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'selectedIdsProvider';
+}
+
+/// See also [selectedIds].
+class SelectedIdsProvider extends AutoDisposeProvider<List<int>> {
+  /// See also [selectedIds].
+  SelectedIdsProvider(
+    List<Genre> genres,
+  ) : this._internal(
+          (ref) => selectedIds(
+            ref as SelectedIdsRef,
+            genres,
+          ),
+          from: selectedIdsProvider,
+          name: r'selectedIdsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$selectedIdsHash,
+          dependencies: SelectedIdsFamily._dependencies,
+          allTransitiveDependencies:
+              SelectedIdsFamily._allTransitiveDependencies,
+          genres: genres,
+        );
+
+  SelectedIdsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.genres,
+  }) : super.internal();
+
+  final List<Genre> genres;
+
+  @override
+  Override overrideWith(
+    List<int> Function(SelectedIdsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: SelectedIdsProvider._internal(
+        (ref) => create(ref as SelectedIdsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        genres: genres,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeProviderElement<List<int>> createElement() {
+    return _SelectedIdsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is SelectedIdsProvider && other.genres == genres;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, genres.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin SelectedIdsRef on AutoDisposeProviderRef<List<int>> {
+  /// The parameter `genres` of this provider.
+  List<Genre> get genres;
+}
+
+class _SelectedIdsProviderElement extends AutoDisposeProviderElement<List<int>>
+    with SelectedIdsRef {
+  _SelectedIdsProviderElement(super.provider);
+
+  @override
+  List<Genre> get genres => (origin as SelectedIdsProvider).genres;
+}
+
+String _$genreControllerHash() => r'0b824bd228c2024590b1c2d61955186602bbe760';
 
 abstract class _$GenreController
     extends BuildlessAutoDisposeNotifier<List<Genre>> {
@@ -187,5 +315,22 @@ class _GenreControllerProviderElement
   @override
   List<Genre> get genres => (origin as GenreControllerProvider).genres;
 }
+
+String _$pagesControllerHash() => r'afb4ec2f03b8ae392209d640332297c2f9f8f300';
+
+/// See also [PagesController].
+@ProviderFor(PagesController)
+final pagesControllerProvider =
+    AutoDisposeNotifierProvider<PagesController, int>.internal(
+  PagesController.new,
+  name: r'pagesControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$pagesControllerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$PagesController = AutoDisposeNotifier<int>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
