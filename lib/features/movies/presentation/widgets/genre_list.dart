@@ -37,8 +37,8 @@ class _GenreListState extends ConsumerState<GenreList> {
 
                 setState(() {
                   ref.read(selectedIdsProvider(widget.genres));
-                  print(
-                      'Selected Ids: ${ref.read(selectedIdsProvider(widget.genres))}');
+                  // print(
+                  //     'Selected Ids: ${ref.read(selectedIdsProvider(widget.genres))}');
                 });
               },
             ),

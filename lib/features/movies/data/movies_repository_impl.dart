@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tecnical_excercise_tp/features/movies/domain/models/genre_model/genre.dart';
 import 'package:tecnical_excercise_tp/features/movies/domain/models/genre_model/genre_model.dart';
 import 'package:tecnical_excercise_tp/features/movies/domain/models/movies_model/movies_model.dart';
+import 'package:tecnical_excercise_tp/features/movies/domain/models/movies_model/result.dart';
 import 'package:tecnical_excercise_tp/features/movies/domain/repository/movies_repository.dart';
 
 class MoviesRepositoryImpl implements MoviesRepository {
@@ -27,14 +28,20 @@ class MoviesRepositoryImpl implements MoviesRepository {
   }
 
   @override
-  Future<List<Movies>> fetchMovies(int page, List<int> genreIds) async {
+  Future<List<Result>> fetchMovies(int page, List<int> genreIds) async {
     try {
       var request = await dio.get(
         'discover/movie',
-        queryParameters: {'page': page, 'with_genres': genreIds.join(',')},
+        queryParameters: {
+          'page': page,
+          'with_genres': genreIds.join(','),
+        },
       );
       if (request.statusCode == 200) {
         var moviesModel = MoviesModel.fromJson(request.data);
+
+        print(moviesModel.results![0].backdropPath);
+
         return moviesModel.results ?? [];
       } else {
         return [];

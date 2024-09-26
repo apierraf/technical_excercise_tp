@@ -1,39 +1,28 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'movies_model.freezed.dart';
+import 'result.dart';
+
 part 'movies_model.g.dart';
 
-@freezed
-class MoviesModel with _$MoviesModel {
-  const factory MoviesModel({
-    int? page,
-    List<Movies>? results,
-    int? totalPages,
-    int? totalResults,
-  }) = _MoviesModel;
+@JsonSerializable()
+class MoviesModel {
+  int? page;
+  List<Result>? results;
+  @JsonKey(name: 'total_pages')
+  int? totalPages;
+  @JsonKey(name: 'total_results')
+  int? totalResults;
 
-  factory MoviesModel.fromJson(Map<String, dynamic> json) =>
-      _$MoviesModelFromJson(json);
-}
+  MoviesModel({
+    this.page,
+    this.results,
+    this.totalPages,
+    this.totalResults,
+  });
 
-@freezed
-class Movies with _$Movies {
-  const factory Movies({
-    bool? adult,
-    String? backdropPath,
-    List<int>? genreIds,
-    int? id,
-    String? originalLanguage,
-    String? originalTitle,
-    String? overview,
-    double? popularity,
-    String? posterPath,
-    DateTime? releaseDate,
-    String? title,
-    bool? video,
-    double? voteAverage,
-    int? voteCount,
-  }) = _Movies;
+  factory MoviesModel.fromJson(Map<String, dynamic> json) {
+    return _$MoviesModelFromJson(json);
+  }
 
-  factory Movies.fromJson(Map<String, dynamic> json) => _$MoviesFromJson(json);
+  Map<String, dynamic> toJson() => _$MoviesModelToJson(this);
 }

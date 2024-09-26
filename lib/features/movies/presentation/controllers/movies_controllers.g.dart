@@ -23,7 +23,7 @@ final getGenresControllerProvider =
 );
 
 typedef GetGenresControllerRef = AutoDisposeFutureProviderRef<List<Genre>>;
-String _$selectedIdsHash() => r'5028dab9d009d7868cd2aa2311b38479aa00a8e0';
+String _$selectedIdsHash() => r'106d4fc1f3db27020f29909e7450d1aa9125bb48';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -316,12 +316,11 @@ class _GenreControllerProviderElement
   List<Genre> get genres => (origin as GenreControllerProvider).genres;
 }
 
-String _$pagesControllerHash() => r'afb4ec2f03b8ae392209d640332297c2f9f8f300';
+String _$pagesControllerHash() => r'abcc023e1dece360bd11b25a2b146350966c1f16';
 
 /// See also [PagesController].
 @ProviderFor(PagesController)
-final pagesControllerProvider =
-    AutoDisposeNotifierProvider<PagesController, int>.internal(
+final pagesControllerProvider = NotifierProvider<PagesController, int>.internal(
   PagesController.new,
   name: r'pagesControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -331,6 +330,22 @@ final pagesControllerProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$PagesController = AutoDisposeNotifier<int>;
+typedef _$PagesController = Notifier<int>;
+String _$moviesControllersHash() => r'165ccb437fec1c02d106c7712f1b421b34f3a070';
+
+/// See also [MoviesControllers].
+@ProviderFor(MoviesControllers)
+final moviesControllersProvider =
+    AutoDisposeAsyncNotifierProvider<MoviesControllers, List<Result>>.internal(
+  MoviesControllers.new,
+  name: r'moviesControllersProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$moviesControllersHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$MoviesControllers = AutoDisposeAsyncNotifier<List<Result>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
