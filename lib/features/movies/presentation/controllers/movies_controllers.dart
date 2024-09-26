@@ -6,15 +6,10 @@ import 'package:tecnical_excercise_tp/shared/network/dio_config.dart';
 part 'movies_controllers.g.dart';
 
 @riverpod
-FutureOr<dynamic> getGenresController(GetGenresControllerRef ref) async {
-  dynamic result;
+FutureOr<List<Genre>> getGenresController(GetGenresControllerRef ref) async {
   final dio = ref.read(dioConfigProvider);
-  var genreRequest = await MoviesRepositoryImpl(dio).getGenres();
-  genreRequest.fold(
-    (l) => result = l,
-    (r) => result = r,
-  );
-  return result;
+  var genreList = await MoviesRepositoryImpl(dio).getGenres();
+  return genreList;
 }
 
 @riverpod
@@ -22,6 +17,15 @@ class GenreController extends _$GenreController {
   @override
   List<Genre> build(List<Genre> genres) {
     return genres;
+  }
+
+  changeSelected(int id) {
+    state = state.map((e) {
+      if (e.id == id) {
+        return e.copyWith(selected: !e.selected!);
+      }
+      return e;
+    }).toList();
   }
 
   List<int> getIdSelected() {

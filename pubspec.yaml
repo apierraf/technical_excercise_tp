@@ -37,8 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   #navigation library
   go_router: ^14.2.7
-  #logical library
-  fpdart: ^1.1.0
   #http library
   dio: ^5.7.0
   #state management library
@@ -58,6 +56,7 @@ dependencies:
   #flutter_settings_ui
   flutter_settings_ui: ^3.0.1
   shimmer: ^3.0.0
+  very_good_infinite_list: ^0.8.0
 
 dev_dependencies:
   flutter_test:

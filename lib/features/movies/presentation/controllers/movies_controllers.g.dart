@@ -7,11 +7,12 @@ part of 'movies_controllers.dart';
 // **************************************************************************
 
 String _$getGenresControllerHash() =>
-    r'4b560fd7d1acd1b840271049429ba6534a674593';
+    r'6280d256a7fa590da68a450117749f574f8aa34f';
 
 /// See also [getGenresController].
 @ProviderFor(getGenresController)
-final getGenresControllerProvider = AutoDisposeFutureProvider<dynamic>.internal(
+final getGenresControllerProvider =
+    AutoDisposeFutureProvider<List<Genre>>.internal(
   getGenresController,
   name: r'getGenresControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -21,8 +22,8 @@ final getGenresControllerProvider = AutoDisposeFutureProvider<dynamic>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef GetGenresControllerRef = AutoDisposeFutureProviderRef<dynamic>;
-String _$genreControllerHash() => r'0e9df1c35577485a57508637c1496df524edf31f';
+typedef GetGenresControllerRef = AutoDisposeFutureProviderRef<List<Genre>>;
+String _$genreControllerHash() => r'998d02726d600e8e4194b818ddfb612e51ab080c';
 
 /// Copied from Dart SDK
 class _SystemHash {

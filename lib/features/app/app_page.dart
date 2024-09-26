@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tecnical_excercise_tp/features/app/widgets/bottom_nav.dart';
 import 'package:go_router/go_router.dart';
 
-class AppPage extends StatefulWidget {
+class AppPage extends ConsumerStatefulWidget {
   final Widget child;
 
   const AppPage({super.key, required this.child});
 
   @override
-  State<AppPage> createState() => _AppPageState();
+  ConsumerState<AppPage> createState() => _AppPageState();
 }
 
-class _AppPageState extends State<AppPage> {
+class _AppPageState extends ConsumerState<AppPage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   int index = 0;
   @override
   Widget build(BuildContext context) {

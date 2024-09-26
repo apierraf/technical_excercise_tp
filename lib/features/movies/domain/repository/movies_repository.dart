@@ -1,6 +1,7 @@
-import 'package:fpdart/fpdart.dart';
-import 'package:tecnical_excercise_tp/features/movies/domain/models/genre_model/genre_model.dart';
+import 'package:tecnical_excercise_tp/features/movies/domain/models/genre_model/genre.dart';
+import 'package:tecnical_excercise_tp/features/movies/domain/models/movies_model/movies_model.dart';
 
 abstract class MoviesRepository {
-  Future<Either<GenreModel, String>> getGenres();
+  Future<List<Genre>> getGenres();
+  Future<List<Movies>> fetchMovies(int page, List<int> genreIds);
 }

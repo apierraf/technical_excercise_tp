@@ -28,6 +28,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var locale = ref.watch(localeControllersProvider);
+
     return MaterialApp.router(
       routerConfig: routes,
       locale: Locale(locale),
