@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tecnical_excercise_tp/common/loading_widgets.dart';
 import 'package:tecnical_excercise_tp/core/constants/app_constants.dart';
 import 'package:tecnical_excercise_tp/features/details/presentation/controllers/details_controller.dart';
 import 'package:tecnical_excercise_tp/features/details/presentation/widgets/companies_details.dart';
@@ -39,7 +40,7 @@ class DetailsPage extends ConsumerWidget {
                 ],
               )
             : const Center(child: Text('Error')),
-        _ => const Center(child: CircularProgressIndicator()),
+        _ => loadingDetails(context),
       },
     );
   }

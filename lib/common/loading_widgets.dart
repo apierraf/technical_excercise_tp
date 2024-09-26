@@ -111,3 +111,51 @@ Widget loadingMOvies(BuildContext context) => Shimmer.fromColors(
         ),
       ),
     );
+
+Widget loadingDetails(BuildContext context) => Shimmer.fromColors(
+      direction: ShimmerDirection.ltr,
+      baseColor: Colors.grey.shade300,
+      highlightColor: Colors.grey.shade100,
+      child: ListView(
+        children: [
+          Container(
+            height: MediaQuery.sizeOf(context).height * 0.3,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey.shade300,
+              border: Border.all(
+                color: Colors.grey.shade800,
+                width: 1,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            margin: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey.shade300,
+              border: Border.all(
+                color: Colors.grey.shade800,
+                width: 1,
+              ),
+            ),
+            height: MediaQuery.sizeOf(context).height * 0.1,
+          ),
+          Container(
+            margin: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey.shade300,
+              border: Border.all(
+                color: Colors.grey.shade800,
+                width: 1,
+              ),
+            ),
+            height: MediaQuery.sizeOf(context).height * 0.1,
+          ),
+        ],
+      ),
+    );

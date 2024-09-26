@@ -9,6 +9,7 @@ class HeaderDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      pinned: true,
       leading: IconButton(
         icon: const Icon(
           Icons.arrow_back,
