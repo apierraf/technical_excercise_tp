@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tecnical_excercise_tp/features/movies/data/movies_repository_impl.dart';
 import 'package:tecnical_excercise_tp/features/movies/domain/models/genre_model/genre.dart';
@@ -72,5 +73,20 @@ class MoviesControllers extends _$MoviesControllers {
     var results = await getMoviesByGenre();
     var moviesList = state.whenData((data) => data..addAll(results));
     state = moviesList;
+  }
+}
+
+@riverpod
+class SearchMoviesController extends _$SearchMoviesController {
+  @override
+  FutureOr<List<Result>> build() {
+    return [];
+  }
+
+  searchMovies(String query) async {
+    state = const AsyncValue.loading();
+    var dio = ref.read(dioConfigProvider);
+    var moviesList = await MoviesRepositoryImpl(dio).searchMovies(query);
+    state = AsyncValue.data(moviesList);
   }
 }

@@ -4,6 +4,7 @@ import 'package:tecnical_excercise_tp/features/app/app_page.dart';
 import 'package:tecnical_excercise_tp/features/configuration/configuration_page.dart';
 import 'package:tecnical_excercise_tp/features/details/presentation/details_page.dart';
 import 'package:tecnical_excercise_tp/features/movies/presentation/movies_page.dart';
+import 'package:tecnical_excercise_tp/features/movies/presentation/search_movies.dart';
 
 /*
   This file is responsible for defining the routes of the application.
@@ -34,6 +35,11 @@ final routes = GoRouter(
                 int id = state.extra as int;
                 return DetailsPage(id: id);
               },
+            ),
+            GoRoute(
+              path: 'search_movie',
+              name: 'search_movie',
+              builder: (context, state) => const SearchMovie(),
             ),
           ],
         ),

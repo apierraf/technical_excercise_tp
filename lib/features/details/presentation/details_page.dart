@@ -6,6 +6,7 @@ import 'package:tecnical_excercise_tp/features/details/presentation/controllers/
 import 'package:tecnical_excercise_tp/features/details/presentation/widgets/companies_details.dart';
 import 'package:tecnical_excercise_tp/features/details/presentation/widgets/header_details.dart';
 import 'package:tecnical_excercise_tp/features/details/presentation/widgets/title_details.dart';
+import 'package:tecnical_excercise_tp/shared/locale/locale_provider.dart';
 
 class DetailsPage extends ConsumerWidget {
   final int id;
@@ -14,6 +15,7 @@ class DetailsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var movieDetails = ref.watch(fetchDetailsControllerProvider(id));
+    var locale = ref.read(localeControllersProvider);
     return Scaffold(
       body: switch (movieDetails) {
         AsyncData(:final value) => value != null
@@ -30,6 +32,7 @@ class DetailsPage extends ConsumerWidget {
                           voteAverage: value.voteAverage ?? 0,
                           overview: value.overview ?? '',
                           genres: value.genres ?? [],
+                          locale: Locale(locale),
                         ),
                         CompaniesDetails(
                           companies: value.productionCompanies ?? [],

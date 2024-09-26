@@ -30,6 +30,7 @@ class MyApp extends ConsumerWidget {
     var locale = ref.watch(localeControllersProvider);
 
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerConfig: routes,
       locale: Locale(locale),
       localizationsDelegates: const [

@@ -49,4 +49,25 @@ class MoviesRepositoryImpl implements MoviesRepository {
       return [];
     }
   }
+
+  @override
+  Future<List<Result>> searchMovies(String query) async {
+    try {
+      var request = await dio.get(
+        'search/movie',
+        queryParameters: {
+          'query': query,
+        },
+      );
+      if (request.statusCode == 200) {
+        var moviesModel = MoviesModel.fromJson(request.data);
+        return moviesModel.results ?? [];
+      } else {
+        return [];
+      }
+    } on DioException catch (error) {
+      debugPrint(error.message.toString());
+      return [];
+    }
+  }
 }

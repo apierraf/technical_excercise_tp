@@ -8,5 +8,7 @@
     "chose_lang": "Choose language",
     "dark_mode": "Dark mode",
     "cancel": "Cancel",
-    "companies": "Companies:"
+    "companies": "Companies:",
+    "sugestion_search": "Enter the name to search"
+    
 }

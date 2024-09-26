@@ -7,6 +7,7 @@ import 'package:tecnical_excercise_tp/features/movies/domain/models/movies_model
 import 'package:tecnical_excercise_tp/features/movies/presentation/controllers/movies_controllers.dart';
 import 'package:tecnical_excercise_tp/features/movies/presentation/widgets/genre_list.dart';
 import 'package:tecnical_excercise_tp/features/movies/presentation/widgets/movies_list.dart';
+import 'package:go_router/go_router.dart';
 
 class MoviesPage extends ConsumerWidget {
   const MoviesPage({super.key});
@@ -17,9 +18,17 @@ class MoviesPage extends ConsumerWidget {
         ref.watch(getGenresControllerProvider);
     final AsyncValue<List<Result>> fetchMovies =
         ref.watch(moviesControllersProvider);
+
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         title: Text(AppLocalizations.of(context)?.movies ?? ''),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () => context.goNamed('search_movie'),
+          ),
+        ],
       ),
       body: Column(
         children: [

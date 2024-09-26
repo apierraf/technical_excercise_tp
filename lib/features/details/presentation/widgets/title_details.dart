@@ -10,6 +10,7 @@ class TitleDetails extends StatelessWidget {
   final double voteAverage;
   final String overview;
   final List<Genre> genres;
+  final Locale locale;
   const TitleDetails(
       {super.key,
       required this.title,
@@ -17,7 +18,8 @@ class TitleDetails extends StatelessWidget {
       required this.releaseDate,
       required this.voteAverage,
       required this.overview,
-      required this.genres});
+      required this.genres,
+      required this.locale});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class TitleDetails extends StatelessWidget {
                         const Icon(Icons.calendar_today),
                         const SizedBox(width: 5),
                         Text(
-                          DateFormat.yMMMMd()
+                          DateFormat.yMMMMd(locale.languageCode)
                               .format(DateTime.parse(releaseDate)),
                           style: const TextStyle(fontSize: 15),
                         ),

@@ -4,4 +4,5 @@ import 'package:tecnical_excercise_tp/features/movies/domain/models/movies_model
 abstract class MoviesRepository {
   Future<List<Genre>> getGenres();
   Future<List<Result>> fetchMovies(int page, List<int> genreIds);
+  Future<List<Result>> searchMovies(String query);
 }

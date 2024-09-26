@@ -347,5 +347,22 @@ final moviesControllersProvider =
 );
 
 typedef _$MoviesControllers = AutoDisposeAsyncNotifier<List<Result>>;
+String _$searchMoviesControllerHash() =>
+    r'f43fe1211bcaf7af7c25114e9629f3c5905d9eff';
+
+/// See also [SearchMoviesController].
+@ProviderFor(SearchMoviesController)
+final searchMoviesControllerProvider = AutoDisposeAsyncNotifierProvider<
+    SearchMoviesController, List<Result>>.internal(
+  SearchMoviesController.new,
+  name: r'searchMoviesControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$searchMoviesControllerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$SearchMoviesController = AutoDisposeAsyncNotifier<List<Result>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
