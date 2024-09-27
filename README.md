@@ -4,13 +4,11 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Antes de empezar, asegúrate de tener instalado Flutter y un editor de código compatible con Flutter en tu sistema. Además, necesitarás una clave de API de MovieDB para poder acceder a la API. Puedes obtener una clave de API gratuita registrándote en su sitio web.
 
-A few resources to get you started if this is your first Flutter project:
+Instalación
+ --Clona o descarga el repositorio en tu sistema.
+ --Crea un archivo en la raíz del proyecto con el siguiente nombre .env
+   dentro crea la siguiente variable API_KEY = 'Api key de MovieDB'.
+ --Correr en el terminal el siguiente comando: dart run build_runner watch.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
